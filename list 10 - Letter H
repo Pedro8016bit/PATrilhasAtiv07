@@ -1,0 +1,65 @@
+using System;
+using System.Linq;
+
+namespace PATrilhasAtiv07
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			int red = 10;
+			int[,] matrix = new int[red,red];
+			int[] diagPrin = new int[red];
+			int[] diagSecun = new int[red];
+			
+			for (int i = 0; i <red; i++)
+				{
+					for (int j =0; j < red; j++)
+					{
+						Console.WriteLine("Escreva os números da posição ["+i+","+j+"]: ");
+                	    matrix[i,j] = int.Parse(Console.ReadLine());
+                	    if (i == j)
+                	    {
+                	    	diagPrin[i] = matrix[i,j];
+                	    }
+					}
+				}
+			
+			Console.WriteLine("modelo visual da matriz");
+			
+			for (int i = 0; i < red; i++)
+			{
+				for (int j = 0; j < red; j++)
+				{
+					Console.Write(matrix[i, j] + " ");
+				}
+				Console.WriteLine();
+			}
+			
+			Console.WriteLine("os itens da diagonal principal:");
+				
+			for (int i = 0; i < red; i++)
+			{
+				Console.Write(diagPrin[i] + ",");
+			}
+			int soma = diagPrin.Sum();
+			double media = soma / red;
+			
+			Console.WriteLine("\nA soma dos itens é: \n" + soma + "\na media dos itens é:\n" + media );
+			
+			Console.WriteLine("os itens da diagonal Secundaria:");
+			
+			for (int i= 0; i < red; i++)
+			{
+				Console.WriteLine(matrix[i, red - 1 - i] + ",");
+				diagSecun[i] = matrix[i, red - 1 - i];
+			}
+			int somaS = diagSecun.Sum();
+			double mediaS = soma / red;
+			Console.WriteLine("\nA soma dos itens é: \n" + somaS + "\na media dos itens é:\n" + mediaS );
+				
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
