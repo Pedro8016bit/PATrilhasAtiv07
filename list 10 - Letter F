@@ -1,0 +1,33 @@
+using System;
+using System.Linq;
+
+namespace atividade_7___lista_10
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int[,] matrix = new int[3,3];
+            int num = 0;
+            
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++) 
+                {
+                    Console.WriteLine("Escreva os números da posição ["+i+","+j+"]: ");
+                    matrix[i,j] = int.Parse(Console.ReadLine());
+                    if (matrix[i,j] > num)
+                    {
+                    	num = matrix[i,j];
+                    }
+                }
+            }
+
+            Console.WriteLine("o maior numero é :" + num );
+
+            Console.Write("Pressione qualquer tecla para continuar...");
+            Console.ReadKey(true);
+        }
+    }
+}
