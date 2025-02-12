@@ -1,0 +1,38 @@
+using System;
+
+namespace atividade_7___lista_10
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            decimal[,] matrix = new decimal[2,2];
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++) 
+                {
+                    Console.WriteLine("Escreva os números da posição ["+i+","+j+"]: ");
+                    
+                    while (!decimal.TryParse(Console.ReadLine(), out matrix[i, j]))
+                    {
+                        Console.WriteLine("numero inválido! Digite um número válido: ");
+                    }
+                }
+            }
+
+            decimal soma = 0;
+            foreach (decimal num in matrix)
+            {
+                soma += num;
+            }
+            decimal media = soma / 4; 
+
+            Console.WriteLine("Soma dos elementos:" + soma);
+            Console.WriteLine("Média dos elementos:" + media);
+
+            Console.Write("Pressione qualquer tecla para continuar...");
+            Console.ReadKey(true);
+        }
+    }
+}
